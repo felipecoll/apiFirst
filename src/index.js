@@ -13,6 +13,7 @@ app.get('/hello', (req, res) => {
   res.json({message:'Hello World!'});
 });
 
+// Controlo que se ejecute correctamente en el puerto especificado
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
