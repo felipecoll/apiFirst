@@ -1,10 +1,14 @@
 const express = require('express');
+// Importa las dependencias necesarias
 const swaggerUi = require('swagger-ui-express');
+
 const YAML = require('yamljs');
 
 const app = express();
 const port = 3000;
 
+// Carga el archivo OpenAPI (Swagger) en formato YAML
+// Asegúrate de que el archivo openapi.yaml esté en la misma carpeta que este
 const swaggerDocument = YAML.load('./openapi.yaml');
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
