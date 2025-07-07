@@ -11,7 +11,9 @@ const port = 3000;
 // Asegúrate de que el archivo openapi.yaml esté en la misma carpeta que este
 const swaggerDocument = YAML.load('./openapi.yaml');
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(express.json()); // Middleware para parsear JSON
 
+// Middleware para validar las solicitudes y respuestas según el OpenAPI
 app.use(
   OpenApiValidator.middleware({
     apiSpec: swaggerDocument,
@@ -28,6 +30,17 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Ruta a definir
+app.post('/users', (req, res) => {
+  const { name, age, email } = req.body;
+  const newUser = {
+    id: Date.now().toString(),
+    name,
+    age,
+    email,
+  }
+    res.status(201).json(newUser)// Genera un ID único basado en la fecha actual
+  })
 
 
 
