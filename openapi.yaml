@@ -37,6 +37,32 @@ components:
             books,
             home_appliances
           ]
+        tags:
+          type: array
+          items:
+            type: string
+          minItems: 1
+        inStock:
+          type: boolean
+        specifications:
+          type: object
+          additionalProperties:
+            type: string
+          minProperties: 1
+        ratings:
+          type: array
+          items:
+            required:
+              - score
+              - comment
+            properties:
+              score:
+                type: integer
+                minimum: 1
+                maximum: 5
+              comment:  
+                type: string
+                maxLength: 200
 paths:
   /hello:
     get:
