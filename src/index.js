@@ -23,6 +23,7 @@ app.use(
   }),
 );  
 
+// Middleware para manejar errores de validación
 app.use((err, req, res, next) => {
   res.status(err.status || 500).json({
     message: err.message,
@@ -43,7 +44,7 @@ app.post('/users', (req, res) => {
   })
 
 
-
+// Ruta para obtener un usuario por ID
 app.get('/hello', (req, res) => {
   res.json({message:'Hello World!'});
 });
