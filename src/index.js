@@ -1,7 +1,9 @@
 const express = require('express');
 // Importa las dependencias necesarias
 const swaggerUi = require('swagger-ui-express');
+//
 const YAML = require('yamljs');
+//
 const OpenApiValidator = require('express-openapi-validator');
 
 const app = express();
