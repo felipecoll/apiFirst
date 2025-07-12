@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Ruta a definir
+// Ruta para obtener todos los usuarios
 app.post('/users', (req, res) => {
   const { name, age, email } = req.body;
   const newUser = {
